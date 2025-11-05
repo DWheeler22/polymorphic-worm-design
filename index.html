@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymorphic Worms: Shape-Shifting Cyber-Threats</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f0f;
+      color: #f2f2f2;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    
+    h1, h2 {
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+    }
+
+    h3 {
+      font-style: italic;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    .meta {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 2rem;
+    }
+    
+    /* event/property layout: header above, paragraph left, list right */
+    .event, .property {
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap; /* allow h3 to occupy a full row */
+    }
+
+    /* keep the h3 above both the paragraph and the list */
+    .event h3, .property h3 {
+      flex-basis: 100%;
+      width: 100%;
+      margin: 0 0 0.5rem 0;
+    }
+
+    /* let paragraph take remaining space */
+    .event p, .property p {
+      flex: 1 1 auto;
+      margin: 0;
+    }
+
+    /* pin lists to the right column */
+    .event ul, .property ul {
+      flex: 0 0 35%;
+      margin: 0;
+      padding-left: 1rem;
+    }
+    
+    /* links */
+    a {
+      color: #4da3ff;
+      text-decoration: none;
+    }
+
+    /* Center header text */
+    header {
+      text-align: center;
+    }
+
+    /* responsive: stack on narrow screens */
+    @media (max-width: 700px) {
+      .event, .property {
+        flex-direction: column;
+    }
+      .event ul, .property ul {
+        flex: none;
+        margin-left: 2rem;
+        padding-left: 1rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Polymorphic Worms: Shape-Shifting Cyber-Threats</h1>
+    <p class="meta">Donald Wheeler & Luke Maraia</p>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        A polymorphic worm is a type of computer virus that propagates through networks, 
+        shape-shifting as it transmits.
+      </p>
+    </section>
+
+    <section id="history">
+      <h2>History of Computer Worms</h2>
+      <p>
+        Computer worms are a type of malicious software that exploit network connections 
+        between devices to propagate themselves.
+      </p>
+
+      <br>
+
+      <article class="event" id="event1">
+        <h3>Event #1</h3>
+        <p>Computer worm event overview
+            <br>
+            <a href="#">Link to resource</a>.</p>
+        <ul>
+          <li>Event was caused by</li>
+          <li>Event caused this much damage</li>
+          <li>Event led to these developments in security</li>
+        </ul>
+      </article>
+
+      <article class="event" id="event2">
+        <h3>Event #2</h3>
+        <p>Computer worm event overview
+            <br>
+            <a href="#">Link to resource</a>.</p>
+        <ul>
+          <li>Event was caused by</li>
+          <li>Event caused this much damage</li>
+          <li>Event led to these developments in security</li>
+        </ul>
+      </article>
+
+      <article class="event" id="event3">
+        <h3>Event #3</h3>
+        <p>Computer worm event overview
+            <br>
+            <a href="#">Link to resource</a>.</p>
+        <ul>
+          <li>Event was caused by</li>
+          <li>Event caused this much damage</li>
+          <li>Event led to these developments in security</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="viruses">
+      <h2>Polymorphic Viruses</h2>
+      <p>
+        A polymorphic virus is an instance of malware that uses cryptography to mutate 
+        its code and other identifiable features upon propagation.
+      </p>
+        <br>
+      <article class="property" id="property1">
+        <h3>Property #1</h3>
+        <p>Polymorphism property
+            <br>
+            <a href="#">Link to resource</a>.
+        </p>
+        <ul>
+          <li>Definition of the property</li>
+          <li>Threats posed by this property</li>
+          <li>How to defend against this property</li>
+        </ul>
+      </article>
+
+      <article class="property" id="property2">
+        <h3>Property #2</h3>
+        <p>Polymorphism property
+            <br>
+            <a href="#">Link to resource</a>.
+        </p>
+        <ul>
+          <li>Definition of the property</li>
+          <li>Threats posed by this property</li>
+          <li>How to defend against this property</li>
+        </ul>
+      </article>
+
+      <article class="property" id="property3">
+        <h3>Property #3</h3>
+        <p>Polymorphism property
+            <br>
+            <a href="#">Link to resource</a>.
+        </p>
+        <ul>
+          <li>Definition of the property</li>
+          <li>Threats posed by this property</li>
+          <li>How to defend against this property</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
