@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymorphic Worms: Shape-Shifting Cyber-Threats</title>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0f0f0f;
+      color: #f2f2f2;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+    
+    h1, h2 {
+      color: #fff;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+    }
+
+    h3 {
+      font-style: italic;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    .meta {
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      margin-left: 2rem;
+    }
+    
+    .event, .property {
+      margin-bottom: 1.5rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .event h3, .property h3 {
+      flex-basis: 100%;
+      width: 100%;
+      margin: 0 0 0.5rem 0;
+    }
+
+    .event p, .property p {
+      flex: 1 1 auto;
+      margin: 0;
+    }
+
+    .event ul, .property ul {
+      flex: 0 0 35%;
+      margin: 0;
+      padding-left: 1rem;
+    }
+    
+    a {
+      color: #4da3ff;
+      text-decoration: none;
+    }
+
+    header {
+      text-align: center;
+    }
+
+    @media (max-width: 700px) {
+      .event, .property {
+        flex-direction: column;
+    }
+      .event ul, .property ul {
+        flex: none;
+        margin-left: 2rem;
+        padding-left: 1rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Polymorphic Worms: Shape-Shifting Cyber-Threats</h1>
+    <p class="meta">Donald Wheeler & Luke Maraia</p>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        Computer worms are a type of malicious software that exploit network connections between devices 
+        to propagate themselves. Unlike other computer viruses, worms do not require user interaction to spread.
+        Once a worm infects a device, it takes advantage of vulnerabilities in common network protocols to 
+        copy itself to others. Worms have evolved from simple experiments to potent cybersecurity threats that 
+        rapidly spread across local networks and the Internet.
+      </p>
+    </section>
+
+    <section id="history">
+      <h2>History of Computer Worms</h2>
+      <p>
+        Worms were originally created to experiment with the capabilities of large computer networks, 
+        but as the Internet grew, so did their sophistication and potential for harm.
+      </p>
+
+      <article class="event" id="event1">
+        <h3>The First Computer Worm: Creeper</h3>
+        <p>
+          The first instance of a computer worm was named “Creeper,” developed by Bob Thomas of BBN. 
+          It was designed as an experiment to see if software could propagate itself across a network 
+          without human interaction. The later version by Ray Tomlinson copied itself between devices and 
+          displayed the message “I’M THE CREEPER : CATCH ME IF YOU CAN.” 
+          Tomlinson also created “Reaper,” which spread through ARPAnet to delete Creeper.
+          <br>
+          <a href="https://www.exabeam.com/blog/infosec-trends/creeper-the-worlds-first-computer-virus/">Source: Exabeam</a>.
+        </p>
+        <ul>
+          <li>Developed as a networking experiment, not malicious intent.</li>
+          <li>Spread between TENEX systems on ARPAnet.</li>
+          <li>Inspired the first antivirus-like software, “Reaper.”</li>
+        </ul>
+      </article>
+
+      <article class="event" id="event2">
+        <h3>The Morris Worm</h3>
+        <p>
+          The Morris Worm was the first major Internet attack, infecting around 6,000 computers — about 10% 
+          of the Internet in 1988. It exploited vulnerabilities in the “sendmail” and “fingerd” programs 
+          on Unix systems. Reinfections caused denial of service by overloading system resources. 
+          Its creator, Robert Morris, became the first person charged under the Computer Fraud and Abuse Act.
+          <br>
+          <a href="https://www.fbi.gov/news/stories/morris-worm-30-years-since-first-major-attack-on-internet-110218">Source: FBI</a>.
+        </p>
+        <ul>
+          <li>Caused between $100,000 and $10,000,000 in damages.</li>
+          <li>Exploited vulnerabilities in SMTP and buffer overflows.</li>
+          <li>Led to U.S. cybersecurity improvements and legal reforms.</li>
+        </ul>
+      </article>
+
+      <article class="event" id="event3">
+        <h3>The Storm Worm Attack</h3>
+        <p>
+          The Storm Worm of 2007 infected over a million Windows computers. 
+          It spread via a spam email titled “230 dead as storm batters Europe,” referencing Cyclone Kyrill. 
+          Once infected, machines joined a botnet through peer-to-peer communication and downloaded 
+          malicious executables for denial-of-service and remote access. 
+          The worm’s packer changed its signature every ten to thirty minutes, making detection difficult.
+          <br>
+          <a href="https://www.secureworks.com/research/storm-worm">Source: Secureworks</a>.
+        </p>
+        <ul>
+          <li>Spread through deceptive spam emails.</li>
+          <li>Infected over 1,000,000 devices worldwide.</li>
+          <li>Attributed to the Russian hacker group Zhelatin Gang.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="viruses">
+      <h2>Polymorphic Viruses</h2>
+      <p>
+        A polymorphic virus is a type of malware that uses cryptography to mutate its code and identifiable 
+        characteristics with each infection. The 1990 virus “1260” was the first known instance, using a 
+        randomized decryption algorithm to vary its signature and evade antivirus detection.
+      </p>
+      <article class="property" id="property1">
+        <h3>Encryption and Mutation</h3>
+        <p>
+          Attackers encrypt the payload so it bypasses detection, then decrypt it after installation. 
+          Mutation engines randomize aspects such as file name, size, and encryption keys. The code’s structure 
+          also changes — variable names and operations are altered, and meaningless “dead code” is inserted.
+          <br>
+          <a href="https://www.crowdstrike.com/en-us/cybersecurity-101/malware/polymorphic-virus/">Source: CrowdStrike</a>.
+        </p>
+        <ul>
+          <li>Each infection appears unique, altering its signature.</li>
+          <li>Evades signature-based antivirus detection.</li>
+          <li>Defensive countermeasure: heuristic and behavior-based analysis.</li>
+        </ul>
+      </article>
+
+      <article class="property" id="property2">
+        <h3>Heuristic Analysis</h3>
+        <p>
+          Heuristic analysis detects polymorphic worms by identifying suspicious behaviors and code patterns. 
+          It can be static (code comparison) or dynamic (sandbox execution) and is one of the few ways to 
+          identify previously unknown or modified malware.
+          <br>
+          <a href="https://usa.kaspersky.com/resource-center/definitions/heuristic-analysis">Source: Kaspersky</a>.
+        </p>
+        <ul>
+          <li>Static analysis compares decompiled code to known malware.</li>
+          <li>Dynamic analysis observes behavior in virtualized environments.</li>
+          <li>Needs fine-tuning to reduce false positives.</li>
+        </ul>
+      </article>
+
+      <article class="property" id="property3">
+        <h3>Defensive Strategies</h3>
+        <p>
+          Defending against polymorphic worms requires multiple layers: regular software updates, 
+          network segmentation, automated containment, and endpoint detection. 
+          These prevent worms from exploiting system vulnerabilities or spreading between zones.
+          <br>
+          <a href="https://www.digitalguardian.com/blog/what-polymorphic-malware-definition-and-best-practices-defending-against-polymorphic-malware">Source: Digital Guardian</a>.
+        </p>
+        <ul>
+          <li>Patch operating systems to close exploited vulnerabilities.</li>
+          <li>Segment networks to limit infection spread.</li>
+          <li>Use automated isolation and endpoint monitoring tools.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

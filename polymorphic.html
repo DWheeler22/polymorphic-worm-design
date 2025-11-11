@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polymorphic Worms: Shape-Shifting Cyber-Threats</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* define nav height for scroll offsets */
+    :root {
+      --nav-height: 72px; /* adjust if you change nav size */
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+      color: #e0e0e0;
+      padding: 0;
+      line-height: 1.7;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated background particles */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 0, 255, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(0, 150, 255, 0.05) 0%, transparent 50%);
+      animation: drift 20s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(50px, -30px) scale(1.1); }
+      66% { transform: translate(-30px, 50px) scale(0.9); }
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 2rem 3rem;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+      border-bottom: 2px solid rgba(0, 255, 255, 0.3);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #00ffff 0%, #ff00ff 50%, #00bfff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: glow 3s ease-in-out infinite;
+      text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    @keyframes glow {
+      0%, 100% { filter: brightness(1); }
+      50% { filter: brightness(1.2); }
+    }
+
+    .meta {
+      color: #00d4ff;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 300;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+      position: relative;
+      z-index: 0; /* ensure main sits below the fixed nav */
+    }
+
+    section {
+      margin-bottom: 4rem;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 2.5rem;
+      border: 1px solid rgba(0, 255, 255, 0.1);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      z-index: 0; /* make sure sections don't overlap the nav */
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #00ffff;
+      border-left: 4px solid #ff00ff;
+      padding-left: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      color: #ff00ff;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      position: relative;
+    }
+
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.9); }
+    }
+
+    .event, .property {
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      border-left: 3px solid #00bfff;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .event::before, .property::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 255, 255, 0.05) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none; /* allow clicks to pass through to links */
+    }
+
+    .event:hover, .property:hover {
+      background: rgba(0, 0, 0, 0.5);
+      border-left-color: #ff00ff;
+      transform: translateX(8px);
+    }
+
+    .event:hover::before, .property:hover::before {
+      opacity: 1;
+    }
+
+    .event h3, .property h3 {
+      margin-bottom: 1rem;
+    }
+
+    .event p, .property p {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1rem;
+    }
+
+    ul li {
+      padding: 0.5rem 0 0.5rem 2rem;
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+
+    ul li::before {
+      content: '◆';
+      position: absolute;
+      left: 0.5rem;
+      color: #00ffff;
+      font-size: 0.8rem;
+    }
+
+    ul li:hover {
+      transform: translateX(5px);
+      color: #00ffff;
+    }
+
+    a {
+      color: #00d4ff;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+
+    a:hover {
+      color: #ff00ff;
+      border-bottom-color: #ff00ff;
+      text-shadow: 0 0 8px rgba(255, 0, 255, 0.5);
+    }
+
+    #overview p {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: #d0d0d0;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #00ffff 0%, #ff00ff 100%);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #00bfff 0%, #ff1493 100%);
+    }
+
+    /* enable smooth in-page scrolling */
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-height); /* ensures browser scrolls a bit above targets */
+    }
+
+    /* page reference / table-of-contents at top of page */
+    .page-nav {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      /* fixed at top of viewport so it's always accessible */
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 2147483647; /* ensure it's on top of everything */
+      will-change: transform; /* hint for smoother compositing */
+      transform: translateZ(0); /* create a new stacking context to avoid being painted under filters */
+      
+      /* center content and constrain width */
+      min-height: var(--nav-height);
+      align-items: center;
+      padding: 0 1rem; /* horizontal padding only; vertical size from --nav-height */
+      background: rgba(10, 10, 10, 0.75);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+    }
+
+    .page-nav a {
+      display: inline-block;
+      padding: 0.5rem 0.9rem;
+      background: rgba(0, 0, 0, 0.35);
+      color: #e0f7ff;
+      border: 1px solid rgba(0, 215, 255, 0.12);
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease;
+    }
+
+    .page-nav a:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(90deg,#00d4ff22,#ff00ff22);
+      color: #fff;
+      border-color: rgba(255,0,255,0.18);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+
+    /* small-screen spacing */
+    @media (max-width: 520px) {
+      .page-nav a {
+        padding: 0.45rem 0.65rem;
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
+      section {
+        padding: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* extra safety: give headings/articles a target offset when directly targeted */
+    h2, .event, .property {
+      scroll-margin-top: calc(var(--nav-height) + 12px);
+    }
+  </style>
+</head>
+
+<body>
+  <header id="top">
+    <h1>Polymorphic Worms: Shape-Shifting Cyber-Threats</h1>
+    <p class="meta">Donald Wheeler & Luke Maraia</p>
+
+    <!-- Page references / quick links -->
+    <nav class="page-nav" aria-label="Page sections">
+      <a href="#top">Top</a>
+      <a href="#overview">Overview</a>
+      <a href="#history">History</a>
+      <a href="#viruses">Polymorphic Viruses</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="overview">
+      <h2>Overview</h2>
+      <p>
+        Computer worms are a type of malicious software that exploit network connections between devices 
+        to propagate themselves. Unlike other computer viruses, worms do not require user interaction to spread.
+        Once a worm infects a device, it takes advantage of vulnerabilities in common network protocols to 
+        copy itself to others. Worms have evolved from simple experiments to potent cybersecurity threats that 
+        rapidly spread across local networks and the Internet.
+      </p>
+    </section>
+
+    <section id="history">
+      <h2>History of Computer Worms</h2>
+      <p>
+        Worms were originally created to experiment with the capabilities of large computer networks, 
+        but as the Internet grew, so did their sophistication and potential for harm.
+      </p>
+      <br>
+
+      <article class="event" id="event1">
+        <h3>The First Computer Worm: Creeper</h3>
+        <p>
+          The first instance of a computer worm was named "Creeper," developed by Bob Thomas of BBN. 
+          It was designed as an experiment to see if software could propagate itself across a network 
+          without human interaction. The later version by Ray Tomlinson copied itself between devices and 
+          displayed the message "I'M THE CREEPER : CATCH ME IF YOU CAN." 
+          Tomlinson also created "Reaper," which spread through ARPAnet to delete Creeper.
+          <br>
+          <a href="https://www.exabeam.com/blog/infosec-trends/creeper-the-worlds-first-computer-virus/">Source: Exabeam</a>.
+        </p>
+        <ul>
+          <li>Developed as a networking experiment, not malicious intent.</li>
+          <li>Spread between TENEX systems on ARPAnet.</li>
+          <li>Inspired the first antivirus-like software, "Reaper."</li>
+        </ul>
+      </article>
+
+      <article class="event" id="event2">
+        <h3>The Morris Worm</h3>
+        <p>
+          The Morris Worm was the first major Internet attack, infecting around 6,000 computers — about 10% 
+          of the Internet in 1988. It exploited vulnerabilities in the "sendmail" and "fingerd" programs 
+          on Unix systems. Reinfections caused denial of service by overloading system resources. 
+          Its creator, Robert Morris, became the first person charged under the Computer Fraud and Abuse Act.
+          <br>
+          <a href="https://www.fbi.gov/news/stories/morris-worm-30-years-since-first-major-attack-on-internet-110218">Source: FBI</a>.
+        </p>
+        <ul>
+          <li>Caused between $100,000 and $10,000,000 in damages.</li>
+          <li>Exploited vulnerabilities in SMTP and buffer overflows.</li>
+          <li>Led to U.S. cybersecurity improvements and legal reforms.</li>
+        </ul>
+      </article>
+
+      <article class="event" id="event3">
+        <h3>The Storm Worm Attack</h3>
+        <p>
+          The Storm Worm of 2007 infected over a million Windows computers. 
+          It spread via a spam email titled "230 dead as storm batters Europe," referencing Cyclone Kyrill. 
+          Once infected, machines joined a botnet through peer-to-peer communication and downloaded 
+          malicious executables for denial-of-service and remote access. 
+          The worm's packer changed its signature every ten to thirty minutes, making detection difficult.
+          <br>
+          <a href="https://www.secureworks.com/research/storm-worm">Source: Secureworks</a>.
+        </p>
+        <ul>
+          <li>Spread through deceptive spam emails.</li>
+          <li>Infected over 1,000,000 devices worldwide.</li>
+          <li>Attributed to the Russian hacker group Zhelatin Gang.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section id="viruses">
+      <h2>Polymorphic Viruses</h2>
+      <p>
+        A polymorphic virus is a type of malware that uses cryptography to mutate its code and identifiable 
+        characteristics with each infection. The 1990 virus "1260" was the first known instance, using a 
+        randomized decryption algorithm to vary its signature and evade antivirus detection.
+      </p>
+      <br>
+      
+      <article class="property" id="property1">
+        <h3>Encryption and Mutation</h3>
+        <p>
+          Attackers encrypt the payload so it bypasses detection, then decrypt it after installation. 
+          Mutation engines randomize aspects such as file name, size, and encryption keys. The code's structure 
+          also changes — variable names and operations are altered, and meaningless "dead code" is inserted.
+          <br>
+          <a href="https://www.crowdstrike.com/en-us/cybersecurity-101/malware/polymorphic-virus/">Source: CrowdStrike</a>.
+        </p>
+        <ul>
+          <li>Each infection appears unique, altering its signature.</li>
+          <li>Evades signature-based antivirus detection.</li>
+          <li>Defensive countermeasure: heuristic and behavior-based analysis.</li>
+        </ul>
+      </article>
+
+      <article class="property" id="property2">
+        <h3>Heuristic Analysis</h3>
+        <p>
+          Heuristic analysis detects polymorphic worms by identifying suspicious behaviors and code patterns. 
+          It can be static (code comparison) or dynamic (sandbox execution) and is one of the few ways to 
+          identify previously unknown or modified malware.
+          <br>
+          <a href="https://usa.kaspersky.com/resource-center/definitions/heuristic-analysis">Source: Kaspersky</a>.
+        </p>
+        <ul>
+          <li>Static analysis compares decompiled code to known malware.</li>
+          <li>Dynamic analysis observes behavior in virtualized environments.</li>
+          <li>Needs fine-tuning to reduce false positives.</li>
+        </ul>
+      </article>
+
+      <article class="property" id="property3">
+        <h3>Defensive Strategies</h3>
+        <p>
+          Defending against polymorphic worms requires multiple layers: regular software updates, 
+          network segmentation, automated containment, and endpoint detection. 
+          These prevent worms from exploiting system vulnerabilities or spreading between zones.
+          <br>
+          <a href="https://www.digitalguardian.com/blog/what-polymorphic-malware-definition-and-best-practices-defending-against-polymorphic-malware">Source: Digital Guardian</a>.
+        </p>
+        <ul>
+          <li>Patch operating systems to close exploited vulnerabilities.</li>
+          <li>Segment networks to limit infection spread.</li>
+          <li>Use automated isolation and endpoint monitoring tools.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
