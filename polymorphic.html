@@ -318,7 +318,7 @@
       }
     }
 
-    /* extra safety: give headings/articles a target offset when directly targeted */
+    /* give headings/articles a target offset when directly targeted */
     h2, .event, .property {
       scroll-margin-top: calc(var(--nav-height) + 12px);
     }
@@ -332,10 +332,11 @@
 
     <!-- Page references / quick links -->
     <nav class="page-nav" aria-label="Page sections">
-      <a href="#top">Top</a>
+      <a href="#top">Back to Top</a>
       <a href="#overview">Overview</a>
       <a href="#history">History</a>
-      <a href="#viruses">Polymorphic Viruses</a>
+      <a href="#polymorphic-viruses">Polymorphic Viruses</a>
+      <a href="#references">References</a>
     </nav>
   </header>
 
@@ -343,82 +344,96 @@
     <section id="overview">
       <h2>Overview</h2>
       <p>
-        Computer worms are a type of malicious software that exploit network connections between devices 
+        <b>Computer worms</b> are a class of malicious software that exploit network connections between devices 
         to propagate themselves. Unlike other computer viruses, worms do not require user interaction to spread.
         Once a worm infects a device, it takes advantage of vulnerabilities in common network protocols to 
-        copy itself to others. Worms have evolved from simple experiments to potent cybersecurity threats that 
-        rapidly spread across local networks and the Internet.
+        copy itself to other devices. Worms have evolved from simple computer networking experiments to 
+        potent cybersecurity threats that rapidly spread across local networks and the Internet. A notable
+        adaptation in the evolution of worms is <b>polymorphism</b>, where a worm alters its code to evade detection 
+        by traditional antivirus software. Information security teams should understand the history and characteristics 
+        of polymorphic worms so they can implement effective countermeasures.
       </p>
     </section>
 
     <section id="history">
       <h2>History of Computer Worms</h2>
       <p>
-        Worms were originally created to experiment with the capabilities of large computer networks, 
-        but as the Internet grew, so did their sophistication and potential for harm.
+        Worms were originally created to experiment with the capabilities of large computer networks.
+        As the Internet grew, so did the sophistication of worms and their potential for harm.
       </p>
       <br>
 
       <article class="event" id="event1">
         <h3>The First Computer Worm: Creeper</h3>
         <p>
-          The first instance of a computer worm was named "Creeper," developed by Bob Thomas of BBN. 
-          It was designed as an experiment to see if software could propagate itself across a network 
-          without human interaction. The later version by Ray Tomlinson copied itself between devices and 
-          displayed the message "I'M THE CREEPER : CATCH ME IF YOU CAN." 
-          Tomlinson also created "Reaper," which spread through ARPAnet to delete Creeper.
+          The first instance of a computer worm was named "Creeper," developed by Bob Thomas of Bold, Beranek & N
+          Newman (BBN). It was designed as an experiment to see if software could propagate itself across a network 
+          without human interaction. A later version of the virus implemented by Ray Tomlinson copied itself between 
+          devices and displayed the message "I'M THE CREEPER : CATCH ME IF YOU CAN." Tomlinson also created "Reaper," 
+          which spread through ARPAnet to delete instances of the Creeper worm. Reaper is widely considered the first
+          antivirus software, though it technically functioned as a worm itself.
           <br>
           <a href="https://www.exabeam.com/blog/infosec-trends/creeper-the-worlds-first-computer-virus/">Source: Exabeam</a>.
         </p>
         <ul>
-          <li>Developed as a networking experiment, not malicious intent.</li>
-          <li>Spread between TENEX systems on ARPAnet.</li>
-          <li>Inspired the first antivirus-like software, "Reaper."</li>
+          <li>Developed as a networking experiment, not for malicious purposes.</li>
+          <li>Spread between devices running the TENEX operating system on ARPAnet.</li>
+          <li>Inspired the first antivirus software, "Reaper."</li>
         </ul>
       </article>
 
       <article class="event" id="event2">
         <h3>The Morris Worm</h3>
         <p>
-          The Morris Worm was the first major Internet attack, infecting around 6,000 computers — about 10% 
-          of the Internet in 1988. It exploited vulnerabilities in the "sendmail" and "fingerd" programs 
-          on Unix systems. Reinfections caused denial of service by overloading system resources. 
+          The Morris Worm was the first major Internet attack according to the FBI. Within 24 hours of its release, 
+          the worm infected around 6,000 computers which accounted for about 10% of the Internet in 1988. It exploited 
+          vulnerabilities in the "sendmail" and "fingerd" programs on systems running the Berkely Unix operating system. 
+          The Morris Worm would reinfect hosts at a high rate, causing denial of service by eating up system resources. 
           Its creator, Robert Morris, became the first person charged under the Computer Fraud and Abuse Act.
           <br>
           <a href="https://www.fbi.gov/news/stories/morris-worm-30-years-since-first-major-attack-on-internet-110218">Source: FBI</a>.
         </p>
         <ul>
-          <li>Caused between $100,000 and $10,000,000 in damages.</li>
-          <li>Exploited vulnerabilities in SMTP and buffer overflows.</li>
-          <li>Led to U.S. cybersecurity improvements and legal reforms.</li>
+          <li>Created by Robert Morris, a talented computer scientist who was a Cornell graduate student at the time.</li>
+          <li>Caused anywhere from $100,000 to $10,000,000 in total economic damage.</li>
+          <li>Exploited vulnerabilities in Simple Mail Transfer Protocol (SMTP) and buffer overflows.</li>
+          <li>Served as a wakeup call to the U.S. government leading to cybersecurity improvements and legal reforms.</li>
         </ul>
       </article>
 
       <article class="event" id="event3">
         <h3>The Storm Worm Attack</h3>
         <p>
-          The Storm Worm of 2007 infected over a million Windows computers. 
-          It spread via a spam email titled "230 dead as storm batters Europe," referencing Cyclone Kyrill. 
-          Once infected, machines joined a botnet through peer-to-peer communication and downloaded 
-          malicious executables for denial-of-service and remote access. 
-          The worm's packer changed its signature every ten to thirty minutes, making detection difficult.
+          The Storm Worm of 2007 infected an estimated 1 million Windows computers at its peak. The virus
+          had the properties of a trojan horse (a malicious program disguised as legitimate software) and a worm
+          It spread via a spam email titled "230 dead as storm batters Europe." This spam email referenced the real 
+          storm Cyclone Kyrill that was affecting Europe at that present time, enticing users to click the attachment.
+          An infected machine would have malicious code injected into the Windows service 'wincom32.sys'. This malicious
+          code would allow the machine to be conscripted into a botnet (network of attacker controlled devices) through 
+          the peer-to-peer communication of the service. An infected machine could then be activated as a bot, allowing 
+          the attacker to control it remotely. Infected bots were controlled to download malicious executables over the 
+          Storm network for the purposes of denial-of-service, remote access, and further spreading of the worm. The worm's 
+          packer changed the signature every ten to thirty minutes, making detection difficult.
           <br>
           <a href="https://www.secureworks.com/research/storm-worm">Source: Secureworks</a>.
         </p>
         <ul>
-          <li>Spread through deceptive spam emails.</li>
+          <li>Spread through spam emails that deceived users into clicking malicious attachments.</li>
           <li>Infected over 1,000,000 devices worldwide.</li>
-          <li>Attributed to the Russian hacker group Zhelatin Gang.</li>
+          <li>Attributed to the notorious Russian hacker group named the Zhelatin Gang.</li>
         </ul>
       </article>
     </section>
 
-    <section id="viruses">
+    <section id="polymorphic-viruses">
       <h2>Polymorphic Viruses</h2>
       <p>
         A polymorphic virus is a type of malware that uses cryptography to mutate its code and identifiable 
-        characteristics with each infection. The 1990 virus "1260" was the first known instance, using a 
-        randomized decryption algorithm to vary its signature and evade antivirus detection.
+        characteristics upon propagation to new hosts. Polymorphic worms emerged as a response to early commercial
+        antivirus software, which relied upon signature-based detection. The signature of a piece of computer software
+        can identify a file or the contents inside of it. The first known instance of a polymorphic virus was the ‘1260’ virus, 
+        also known as ‘V2PX’, developed by Mark Washburn in 1990. The virus used a randomized decryption algorithm to vary its 
+        signature and evade antivirus detection.
       </p>
       <br>
       
@@ -426,31 +441,35 @@
         <h3>Encryption and Mutation</h3>
         <p>
           Attackers encrypt the payload so it bypasses detection, then decrypt it after installation. 
-          Mutation engines randomize aspects such as file name, size, and encryption keys. The code's structure 
-          also changes — variable names and operations are altered, and meaningless "dead code" is inserted.
+          Mutation engines randomize aspects such as file name, type, size, and encryption keys. The code's structure 
+          also changes — variable names and order of operations are altered, and inconsequential "dead code" is inserted.
+
           <br>
           <a href="https://www.crowdstrike.com/en-us/cybersecurity-101/malware/polymorphic-virus/">Source: CrowdStrike</a>.
         </p>
         <ul>
-          <li>Each infection appears unique, altering its signature.</li>
+          <li>Uses encryption to hide malicious code.</li>
+          <li>Alters its signature with each infection, appearing unique to each host.</li>
+          <li>Changes the malicious files without changing the function of the malware.</li>
           <li>Evades signature-based antivirus detection.</li>
-          <li>Defensive countermeasure: heuristic and behavior-based analysis.</li>
         </ul>
       </article>
 
       <article class="property" id="property2">
         <h3>Heuristic Analysis</h3>
         <p>
-          Heuristic analysis detects polymorphic worms by identifying suspicious behaviors and code patterns. 
-          It can be static (code comparison) or dynamic (sandbox execution) and is one of the few ways to 
-          identify previously unknown or modified malware.
+          Heuristic analysis detects polymorphic worms by identifying suspicious behaviors across systems, files,
+          and networks. This type of detection is adaptable and finds previously unknown or modified viruses that 
+          signature-based detection will miss. Heuristic analysis can be static (malware code analysis) or dynamic 
+          (malware execution analysis) and is one of the few ways to reliably deal with polymorphic threats and previously 
+          unknown malware.
           <br>
           <a href="https://usa.kaspersky.com/resource-center/definitions/heuristic-analysis">Source: Kaspersky</a>.
         </p>
         <ul>
-          <li>Static analysis compares decompiled code to known malware.</li>
-          <li>Dynamic analysis observes behavior in virtualized environments.</li>
-          <li>Needs fine-tuning to reduce false positives.</li>
+          <li>Static analysis decompiles software and inspects the source code, comparing it with known malware in a heuristic database.</li>
+          <li>Dynamic analysis uses a virtual machine to test the malware in an isolated environment.</li>
+          <li>Heuristic analysis methods require fine-tuning or they will generate excessive false positives.</li>
         </ul>
       </article>
 
@@ -458,17 +477,34 @@
         <h3>Defensive Strategies</h3>
         <p>
           Defending against polymorphic worms requires multiple layers: regular software updates, 
-          network segmentation, automated containment, and endpoint detection. 
-          These prevent worms from exploiting system vulnerabilities or spreading between zones.
+          network segmentation, automated containment, and endpoint detection. The combination of 
+          these controls creates defense-in-depth. This approach greatly limits the opportunities 
+          for a worm to exploit system vulnerabilities or spread between devices.
           <br>
           <a href="https://www.digitalguardian.com/blog/what-polymorphic-malware-definition-and-best-practices-defending-against-polymorphic-malware">Source: Digital Guardian</a>.
         </p>
         <ul>
-          <li>Patch operating systems to close exploited vulnerabilities.</li>
-          <li>Segment networks to limit infection spread.</li>
-          <li>Use automated isolation and endpoint monitoring tools.</li>
+          <li>Patch software & operating systems to eliminate vulnerabilities that worms use to spread.</li>
+          <li>Divide the network into zones to limit infection spread.</li>
+          <li>Use automated isolation solution to contain infections</li>
+          <li>Use endpoint detection and response (EDR) tools to discover worms and promptly alert the security team.</li>
         </ul>
       </article>
+    </section>
+
+    <section id="references">
+      <h2>References</h2>
+      <ul>
+        <li><a href="https://www.exabeam.com/blog/infosec-trends/creeper-the-worlds-first-computer-virus/">Creeper: The World's First Computer Virus (Exabeam)</a></li>
+        <li><a href="https://www.fbi.gov/news/stories/morris-worm-30-years-since-first-major-attack-on-internet-110218">Morris Worm: 30 Years Since First Major Attack on the Internet (FBI)</a></li>
+        <li><a href="https://www.secureworks.com/research/storm-worm">The Storm Worm (SecureWorks)</a></li>
+        <li><a href="https://www.crowdstrike.com/en-us/cybersecurity-101/malware/polymorphic-virus/">What is a Polymorphic Virus? (CrowdStrike)</a></li>
+        <li><a href="https://usa.kaspersky.com/resource-center/definitions/heuristic-analysis">What is Heuristic Analysis? (Kaspersky)</a></li>
+        <li><a href="https://www.digitalguardian.com/blog/what-polymorphic-malware-definition-and-best-practices-defending-against-polymorphic-malware">What is Polymorphic Malware? Definition and Best Practices for Defending Against Polymorphic Malware (Digital Guardian)</a></li>
+        <li><a href="https://blog.barracuda.com/2023/06/06/malware-101-worms">Malware 101: Worms and How They Propagate (Barracuda)</a></li>
+        <li><a href="https://www.techtarget.com/searchsecurity/definition/worm#:~:text=A%20computer%20worm%20is%20a,to%20spread%20to%20uninfected%20computers">TechTarget: Computer Worm Definition (TechTarget)</a></li>
+        <li><a href="https://www.sentinelone.com/blog/what-is-a-malware-file-signature-and-how-does-it-work/">What is a Malware File Signature and How Does It Work? (SentinelOne)</a></li>
+      </ul>
     </section>
   </main>
 </body>
