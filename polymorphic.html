@@ -364,7 +364,7 @@
       <br>
 
       <article class="event" id="event1">
-        <h3>The First Computer Worm: Creeper</h3>
+        <h3>Creeper: The First Computer Worm</h3>
         <p>
           The first instance of a computer worm was named "Creeper," developed by Bob Thomas of Bold, Beranek & N
           Newman (BBN). It was designed as an experiment to see if software could propagate itself across a network 
@@ -383,29 +383,32 @@
       </article>
 
       <article class="event" id="event2">
-        <h3>The Morris Worm</h3>
+        <h3>The Morris Worm: The First Major Internet Attack</h3>
         <p>
           The Morris Worm was the first major Internet attack according to the FBI. Within 24 hours of its release, 
           the worm infected around 6,000 computers which accounted for about 10% of the Internet in 1988. It exploited 
-          vulnerabilities in the "sendmail" and "fingerd" programs on systems running the Berkely Unix operating system. 
-          The Morris Worm would reinfect hosts at a high rate, causing denial of service by eating up system resources. 
-          Its creator, Robert Morris, became the first person charged under the Computer Fraud and Abuse Act.
+          vulnerabilities in two programs on systems running the Berkely Unix operating system. The first of these is 
+          the "sendmail"program in it's implementation of the Simple Mail Transfer Protocol (SMTP). The second program is
+          the "fingerd" program, which contained a buffer overflow vulnerability that allowed malicious code to be run on
+          infected devices. The Morris Worm would reinfect hosts at a high rate, causing denial of service by eating up system 
+          resources. The worm's eponymous creator, Robert Morris, was prosecuted by the U.S. government and became the first person 
+          charged under the Computer Fraud and Abuse Act (CFAA).
           <br>
           <a href="https://www.fbi.gov/news/stories/morris-worm-30-years-since-first-major-attack-on-internet-110218">Source: FBI</a>.
         </p>
         <ul>
           <li>Created by Robert Morris, a talented computer scientist who was a Cornell graduate student at the time.</li>
           <li>Caused anywhere from $100,000 to $10,000,000 in total economic damage.</li>
-          <li>Exploited vulnerabilities in Simple Mail Transfer Protocol (SMTP) and buffer overflows.</li>
+          <li>Exploited vulnerabilities in SMTP as well as buffer overflows.</li>
           <li>Served as a wakeup call to the U.S. government leading to cybersecurity improvements and legal reforms.</li>
         </ul>
       </article>
 
       <article class="event" id="event3">
-        <h3>The Storm Worm Attack</h3>
+        <h3>The Storm Worm: A Notorious Polymorphic Worm</h3>
         <p>
           The Storm Worm of 2007 infected an estimated 1 million Windows computers at its peak. The virus
-          had the properties of a trojan horse (a malicious program disguised as legitimate software) and a worm
+          had the properties of a trojan horse (a malicious program disguised as legitimate software) and a worm.
           It spread via a spam email titled "230 dead as storm batters Europe." This spam email referenced the real 
           storm Cyclone Kyrill that was affecting Europe at that present time, enticing users to click the attachment.
           An infected machine would have malicious code injected into the Windows service 'wincom32.sys'. This malicious
@@ -440,8 +443,8 @@
       <article class="property" id="property1">
         <h3>Encryption and Mutation</h3>
         <p>
-          Attackers encrypt the payload so it bypasses detection, then decrypt it after installation. 
-          Mutation engines randomize aspects such as file name, type, size, and encryption keys. The code's structure 
+          Attackers encrypt the payload of the malware so that it bypasses detection, then decrypt it after installation. 
+          Mutation engines randomize aspects such as file name, type, size, and encryption keys. The malware's code structure 
           also changes — variable names and order of operations are altered, and inconsequential "dead code" is inserted.
 
           <br>
@@ -486,7 +489,7 @@
         <ul>
           <li>Patch software & operating systems to eliminate vulnerabilities that worms use to spread.</li>
           <li>Divide the network into zones to limit infection spread.</li>
-          <li>Use automated isolation solution to contain infections</li>
+          <li>Use automated isolation solution to contain infections.</li>
           <li>Use endpoint detection and response (EDR) tools to discover worms and promptly alert the security team.</li>
         </ul>
       </article>
